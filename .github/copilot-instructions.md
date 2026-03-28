@@ -22,3 +22,14 @@
 - Setup and overview: `README.md`
 - Workshop guidance: `workshop/GUIDE.md`
 - Existing style/design instructions: `.github/instructions/`
+
+## Design Guide
+- Treat the UI as a product surface, not a placeholder. Favor strong visual direction over generic layouts.
+- Use distinctive typography choices and avoid default-looking font stacks.
+- Define and reuse CSS variables for theme tokens (color, spacing, radius, shadows, motion timing).
+- Build atmosphere with layered backgrounds (gradients, patterns, shape overlays) rather than flat color fills.
+- Keep motion intentional and moderate: prioritize page-entry and key state transitions over excessive micro-animations.
+- Maintain responsive quality on mobile and desktop; preserve readable text and comfortable tap targets.
+- Preserve existing app behavior and HTMX wiring unless explicitly requested otherwise.
+- When redesigning screens that are covered by tests, keep required UI text and interaction hooks stable.
+- If adding new CSS utilities or component classes, keep naming consistent and specificity low.

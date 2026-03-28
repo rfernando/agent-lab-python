@@ -353,6 +353,225 @@ button:disabled {
     }
 }
 
+/* =============================================
+   VARIATION C — Gamified Launchpad Landing
+   ============================================= */
+
+.lp-shell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.25rem;
+    padding: 2rem 1rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    min-height: 100%;
+}
+
+/* Radar scan rings */
+.lp-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.lp-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(240, 143, 54, 0.18);
+    width: 58vmax;
+    height: 58vmax;
+    animation: lp-ring-expand 5s ease-out infinite;
+}
+
+.lp-ring--2 {
+    width: 82vmax;
+    height: 82vmax;
+    border-color: rgba(240, 143, 54, 0.09);
+    animation-delay: 2.5s;
+}
+
+@keyframes lp-ring-expand {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: scale(1.15);
+        opacity: 0;
+    }
+}
+
+/* Hero */
+.lp-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.lp-status-badge {
+    font-family: "IBM Plex Mono", Consolas, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(240, 143, 54, 0.38);
+    border-radius: 3px;
+    padding: 0.22rem 0.7rem;
+    animation: lp-fade-up 0.6s var(--ease-snap) both;
+}
+
+.lp-title {
+    margin: 0;
+    font-size: clamp(4rem, 20vw, 7.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 0.9;
+    background: linear-gradient(150deg, #ffffff 15%, var(--accent-soft) 55%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 44px rgba(240, 143, 54, 0.3));
+    animation: lp-fade-up 0.65s var(--ease-snap) 0.1s both;
+}
+
+.lp-tagline {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: "IBM Plex Mono", Consolas, monospace;
+    animation: lp-fade-up 0.65s var(--ease-snap) 0.2s both;
+}
+
+/* Rules chips */
+.lp-rules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    animation: lp-fade-up 0.65s var(--ease-snap) 0.3s both;
+}
+
+.lp-rules-label {
+    margin: 0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-soft);
+    font-family: "IBM Plex Mono", Consolas, monospace;
+}
+
+.lp-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lp-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: rgba(16, 40, 55, 0.78);
+    border: 1px solid var(--panel-line);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    white-space: nowrap;
+}
+
+.lp-chip-n {
+    font-family: "IBM Plex Mono", Consolas, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* CTA */
+.lp-cta {
+    animation: lp-fade-up 0.65s var(--ease-snap) 0.42s both;
+}
+
+.lp-start-btn {
+    padding: 1.05rem 4.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1c0600;
+    background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    box-shadow:
+        0 0 0 1px rgba(255, 220, 140, 0.45),
+        0 0 32px rgba(240, 143, 54, 0.38),
+        0 8px 24px rgba(0, 0, 0, 0.45);
+    animation: lp-cta-pulse 2.8s ease-in-out infinite;
+    transition: transform 140ms ease, filter 140ms ease;
+}
+
+.lp-start-btn:hover,
+.lp-start-btn:focus-visible {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.lp-start-btn:focus-visible {
+    outline: 3px solid var(--accent-strong);
+    outline-offset: 4px;
+}
+
+.lp-start-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes lp-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lp-cta-pulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 1px rgba(255, 220, 140, 0.45),
+            0 0 32px rgba(240, 143, 54, 0.38),
+            0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 1px rgba(255, 220, 140, 0.65),
+            0 0 52px rgba(240, 143, 54, 0.55),
+            0 10px 32px rgba(0, 0, 0, 0.5);
+    }
+}
+
 @media (max-width: 640px) {
     .mission-shell {
         padding: 0.65rem;
@@ -370,6 +589,28 @@ button:disabled {
     .board-square {
         font-size: 0.67rem;
         min-height: 56px;
+    }
+
+    .lp-shell {
+        gap: 1.75rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .lp-chips {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 22rem;
+    }
+
+    .lp-chip {
+        white-space: normal;
+    }
+
+    .lp-start-btn {
+        padding: 1rem 3rem;
+        width: 100%;
+        max-width: 22rem;
     }
 }
 

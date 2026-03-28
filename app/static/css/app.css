@@ -1,26 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap");
 
 :root {
-    --bg-deep: #041218;
-    --bg-mid: #0a1f2d;
-    --panel: #102837;
-    --panel-soft: #17384b;
-    --panel-line: #2f5b70;
-    --text-main: #e4f6ff;
-    --text-soft: #90b3c4;
-    --accent: #f08f36;
-    --accent-soft: #f5bd75;
-    --accent-strong: #ffc447;
-    --mark-bg: #0f3c2f;
-    --mark-line: #2da17b;
-    --mark-text: #cbffe8;
-    --win-bg: #5a3204;
-    --win-line: #f6ae3e;
-    --win-text: #ffe6b6;
-    --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.28);
-    --radius: 14px;
-    --radius-sm: 10px;
+    --bg-deep: #0d1117;
+    --bg-mid: #161b22;
+    --panel: #21262d;
+    --panel-soft: #30363d;
+    --panel-line: #30363d;
+    --text-main: #e6edf3;
+    --text-soft: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: #79c0ff;
+    --accent-strong: #cae8ff;
+    --mark-bg: #0d2119;
+    --mark-line: #3fb950;
+    --mark-text: #aff5b4;
+    --win-bg: #3d1f00;
+    --win-line: #d29922;
+    --win-text: #ffd700;
+    --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.35);
+    --radius: 8px;
+    --radius-sm: 6px;
     --ease-snap: cubic-bezier(0.18, 0.84, 0.34, 1);
 }
 
@@ -36,12 +36,12 @@ body,
 }
 
 body {
-    font-family: "Chakra Petch", "Segoe UI", sans-serif;
+    font-family: "JetBrains Mono", "Space Mono", Consolas, monospace;
     color: var(--text-main);
     background:
-        radial-gradient(circle at 20% 15%, rgba(240, 143, 54, 0.18), transparent 40%),
-        radial-gradient(circle at 78% 88%, rgba(47, 91, 112, 0.26), transparent 42%),
-        linear-gradient(150deg, var(--bg-deep), var(--bg-mid));
+        radial-gradient(circle at 18% 10%, rgba(88, 166, 255, 0.08), transparent 38%),
+        radial-gradient(circle at 82% 90%, rgba(63, 185, 80, 0.07), transparent 40%),
+        linear-gradient(160deg, var(--bg-deep), var(--bg-mid));
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -50,12 +50,12 @@ body::before {
     position: fixed;
     inset: 0;
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.15;
     pointer-events: none;
     background:
-        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 24px 24px;
+        linear-gradient(rgba(88, 166, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(88, 166, 255, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
     mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
 }
 
@@ -82,7 +82,7 @@ button:disabled {
     width: 100%;
     max-width: 58rem;
     margin: 0 auto;
-    background: linear-gradient(180deg, rgba(23, 56, 75, 0.9), rgba(13, 33, 45, 0.94));
+    background: linear-gradient(180deg, rgba(33, 38, 45, 0.95), rgba(22, 27, 34, 0.98));
     border: 1px solid var(--panel-line);
     border-radius: calc(var(--radius) + 4px);
     box-shadow: var(--shadow-lg);
@@ -96,7 +96,7 @@ button:disabled {
     gap: 0.75rem;
     padding: 0.85rem 1rem;
     border-bottom: 1px solid var(--panel-line);
-    background: linear-gradient(90deg, rgba(8, 25, 34, 0.82), rgba(22, 50, 66, 0.62));
+    background: linear-gradient(90deg, rgba(13, 17, 23, 0.9), rgba(33, 38, 45, 0.7));
 }
 
 .mission-brand {
@@ -109,11 +109,11 @@ button:disabled {
 
 .mission-kicker {
     margin: 0.5rem 0 0;
-    font-size: 0.9rem;
-    color: var(--text-soft);
+    font-size: 0.85rem;
+    color: var(--accent);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-family: "IBM Plex Mono", Consolas, monospace;
+    letter-spacing: 0.1em;
+    font-family: "JetBrains Mono", Consolas, monospace;
 }
 
 .start-screen {
@@ -128,7 +128,7 @@ button:disabled {
 .rules-card {
     border: 1px solid var(--panel-line);
     border-radius: var(--radius);
-    background: linear-gradient(170deg, rgba(17, 40, 55, 0.95), rgba(8, 23, 32, 0.95));
+    background: linear-gradient(170deg, rgba(33, 38, 45, 0.95), rgba(22, 27, 34, 0.98));
     box-shadow: var(--shadow-md);
     padding: 1.2rem;
 }
@@ -136,9 +136,13 @@ button:disabled {
 .hero-title {
     margin: 0;
     font-size: clamp(2rem, 9vw, 3rem);
-    line-height: 1;
+    line-height: 1.1;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
+}
+
+.hero-title-accent {
+    color: var(--accent);
 }
 
 .hero-subtitle {
@@ -177,9 +181,9 @@ button:disabled {
 }
 
 .command-btn-primary {
-    color: #271301;
+    color: #0d1117;
     background: linear-gradient(135deg, var(--accent-soft), var(--accent));
-    box-shadow: inset 0 0 0 1px rgba(255, 244, 219, 0.65);
+    box-shadow: inset 0 0 0 1px rgba(202, 232, 255, 0.35);
 }
 
 .command-btn-primary:hover,
@@ -221,7 +225,7 @@ button:disabled {
     border: 1px solid var(--panel-line);
     border-radius: var(--radius);
     padding: 0.55rem;
-    background: rgba(5, 17, 24, 0.68);
+    background: rgba(13, 17, 23, 0.8);
 }
 
 .board-grid {
@@ -240,20 +244,21 @@ button:disabled {
     padding: 0.35rem;
     border-radius: var(--radius-sm);
     border: 1px solid var(--panel-line);
-    background: linear-gradient(180deg, rgba(26, 58, 76, 0.9), rgba(16, 40, 55, 0.9));
+    background: linear-gradient(180deg, rgba(33, 38, 45, 0.9), rgba(22, 27, 34, 0.95));
     color: var(--text-main);
     min-height: 60px;
     text-align: center;
     transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
     user-select: none;
-    font-size: 0.72rem;
-    line-height: 1.22;
+    font-size: 0.68rem;
+    line-height: 1.25;
     word-break: break-word;
     hyphens: auto;
+    font-family: "JetBrains Mono", Consolas, monospace;
 }
 
 .board-square:hover {
-    border-color: var(--accent-soft);
+    border-color: var(--accent);
     transform: translateY(-1px);
 }
 
@@ -262,13 +267,13 @@ button:disabled {
 }
 
 .board-square--marked {
-    background: linear-gradient(160deg, rgba(17, 77, 60, 0.95), rgba(11, 58, 45, 0.95));
+    background: linear-gradient(160deg, rgba(14, 40, 26, 0.97), rgba(9, 28, 17, 0.97));
     border-color: var(--mark-line);
     color: var(--mark-text);
 }
 
 .board-square--winning {
-    background: linear-gradient(160deg, rgba(107, 59, 3, 0.95), rgba(72, 39, 3, 0.95));
+    background: linear-gradient(160deg, rgba(61, 31, 0, 0.97), rgba(40, 20, 0, 0.97));
     border-color: var(--win-line);
     color: var(--win-text);
 }
@@ -284,8 +289,8 @@ button:disabled {
     top: 0.14rem;
     right: 0.22rem;
     font-size: 0.72rem;
-    color: var(--mark-text);
-    font-family: "IBM Plex Mono", Consolas, monospace;
+    color: var(--mark-line);
+    font-family: "JetBrains Mono", Consolas, monospace;
 }
 
 .alert-overlay {
@@ -304,7 +309,7 @@ button:disabled {
     max-width: 22rem;
     border: 1px solid var(--win-line);
     border-radius: var(--radius);
-    background: linear-gradient(170deg, rgba(36, 18, 2, 0.96), rgba(81, 44, 4, 0.95));
+    background: linear-gradient(170deg, rgba(22, 27, 34, 0.98), rgba(33, 38, 45, 0.98));
     box-shadow: var(--shadow-lg);
     padding: 1.2rem;
     text-align: center;
@@ -326,7 +331,7 @@ button:disabled {
 
 .alert-copy {
     margin: 0.5rem 0 1rem;
-    color: #ffdca3;
+    color: var(--text-soft);
 }
 
 @keyframes screen-enter {

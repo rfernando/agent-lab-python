@@ -382,3 +382,296 @@ button:disabled {
         transition: none !important;
     }
 }
+/* ============================================================
+   CINEMATIC OPS LANDING — start screen redesign
+   ============================================================ */
+
+/* ---------- Keyframes ---------- */
+@keyframes cinema-rise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cinema-leak {
+    0%   { transform: translate(-30%, 10%) scale(1);   opacity: 0.18; }
+    50%  { transform: translate(-10%, -10%) scale(1.2); opacity: 0.26; }
+    100% { transform: translate(-30%, 10%) scale(1);   opacity: 0.18; }
+}
+
+@keyframes cinema-pulse-dot {
+    0%, 100% { opacity: 1;   box-shadow: 0 0 0 0 rgba(240, 143, 54, 0.6); }
+    50%       { opacity: 0.5; box-shadow: 0 0 0 5px rgba(240, 143, 54, 0); }
+}
+
+@keyframes deploy-shine {
+    from { left: -110%; }
+    to   { left: 110%; }
+}
+
+/* ---------- Shell & background ---------- */
+.cinema-shell {
+    position: relative;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+    background: linear-gradient(160deg, var(--bg-deep) 0%, #071a26 55%, #050e15 100%);
+    overflow: hidden;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+.cinema-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Scanlines */
+.cinema-bg__scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0, 0, 0, 0.12) 3px,
+        rgba(0, 0, 0, 0.12) 4px
+    );
+}
+
+/* Vignette */
+.cinema-bg__vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.72) 100%);
+}
+
+/* Light-leak orb */
+.cinema-bg__leak {
+    position: absolute;
+    top: -10%;
+    left: -20%;
+    width: 70vmax;
+    height: 70vmax;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(240, 143, 54, 0.22) 0%, transparent 70%);
+    animation: cinema-leak 12s ease-in-out infinite;
+}
+
+/* ---------- Content stage ---------- */
+.cinema-stage {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 42rem;
+    width: 100%;
+}
+
+/* ---------- Status bar ---------- */
+.cinema-status {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    animation: cinema-rise 0.6s var(--ease-snap) both;
+}
+
+.cinema-status__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    animation: cinema-pulse-dot 2s ease-in-out infinite;
+}
+
+.cinema-status__text {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+/* ---------- Hero section ---------- */
+.cinema-hero {
+    animation: cinema-rise 0.6s var(--ease-snap) both;
+}
+
+.cinema-eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+}
+
+.cinema-title {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(3.5rem, 15vw, 7rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.1rem;
+    background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent) 45%, var(--accent-soft) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cinema-sub {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-soft);
+    max-width: 36rem;
+    margin: 0;
+}
+
+/* ---------- Briefing / rules ---------- */
+.cinema-briefing {
+    border: 1px solid var(--panel-line);
+    border-radius: var(--radius);
+    background: rgba(16, 40, 55, 0.55);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem 1.75rem;
+    animation: cinema-rise 0.6s var(--ease-snap) both;
+}
+
+.cinema-briefing__heading {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.2rem;
+}
+
+.cinema-intel {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.cinema-intel__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.cinema-intel__num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+    flex-shrink: 0;
+    min-width: 2rem;
+}
+
+.cinema-intel__text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+/* ---------- CTA ---------- */
+.cinema-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    animation: cinema-rise 0.6s var(--ease-snap) both;
+}
+
+.deploy-btn {
+    position: relative;
+    overflow: hidden;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg-deep);
+    background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent) 100%);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 2.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 32px rgba(240, 143, 54, 0.35), 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.deploy-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -110%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+    skew: -15deg;
+    pointer-events: none;
+    transition: none;
+}
+
+.deploy-btn:hover {
+    box-shadow: 0 0 52px rgba(240, 143, 54, 0.55), 0 6px 24px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.deploy-btn:hover::after {
+    animation: deploy-shine 0.55s ease forwards;
+}
+
+.deploy-btn:active {
+    transform: translateY(0);
+}
+
+.cinema-footnote {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.65rem;
+    color: var(--text-soft);
+    letter-spacing: 0.06em;
+    margin: 0;
+    opacity: 0.7;
+}
+
+/* ---------- Cinema mobile ---------- */
+@media (max-width: 640px) {
+    .cinema-shell {
+        padding: 1.5rem 1rem;
+        align-items: flex-start;
+        padding-top: 2.5rem;
+    }
+
+    .cinema-stage {
+        gap: 1.5rem;
+    }
+
+    .cinema-briefing {
+        padding: 1.1rem 1.2rem;
+    }
+
+    .cinema-cta {
+        align-items: stretch;
+    }
+
+    .deploy-btn {
+        text-align: center;
+        padding: 1rem 1.5rem;
+    }
+}

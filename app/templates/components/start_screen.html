@@ -1,27 +1,59 @@
 <div id="game-container">
-    <div class="mission-panel">
-        <div class="start-screen">
-            <section class="hero-card">
-                <h1 class="hero-title">Soc Ops</h1>
-                <p class="mission-kicker">Briefing // Social Bingo Protocol</p>
-                <p class="hero-subtitle">
-                    Scan the room, connect with people, and complete your objective grid before anyone else.
+    <div class="cinema-shell">
+
+        <!-- Atmospheric background layers -->
+        <div class="cinema-bg" aria-hidden="true">
+            <div class="cinema-bg__scanlines"></div>
+            <div class="cinema-bg__vignette"></div>
+            <div class="cinema-bg__leak"></div>
+        </div>
+
+        <!-- Content stage -->
+        <div class="cinema-stage">
+
+            <!-- Status bar -->
+            <div class="cinema-status" style="animation-delay: 0s">
+                <span class="cinema-status__dot"></span>
+                <span class="cinema-status__text">OPERATION ACTIVE // CLEARANCE: ALPHA</span>
+            </div>
+
+            <!-- Hero -->
+            <section class="cinema-hero" style="animation-delay: 0.15s">
+                <p class="cinema-eyebrow">CLASSIFIED MISSION BRIEF</p>
+                <h1 class="cinema-title">Soc Ops</h1>
+                <p class="cinema-sub">
+                    Scan the room. Form contacts. Complete your objective grid before any other operative.
                 </p>
             </section>
 
-            <section class="rules-card">
-                <h2 class="rules-title">How to play</h2>
-                <ul class="rules-list">
-                    <li>Locate people who match each square prompt.</li>
-                    <li>Tap a square to confirm each successful contact.</li>
-                    <li>Complete 5 in a row to trigger mission success.</li>
-                </ul>
+            <!-- Mission intel / rules -->
+            <section class="cinema-briefing" style="animation-delay: 0.3s">
+                <h2 class="cinema-briefing__heading">How to play</h2>
+                <ol class="cinema-intel">
+                    <li class="cinema-intel__item">
+                        <span class="cinema-intel__num">01</span>
+                        <span class="cinema-intel__text">Locate people who match each square prompt.</span>
+                    </li>
+                    <li class="cinema-intel__item">
+                        <span class="cinema-intel__num">02</span>
+                        <span class="cinema-intel__text">Tap a square to confirm each successful contact.</span>
+                    </li>
+                    <li class="cinema-intel__item">
+                        <span class="cinema-intel__num">03</span>
+                        <span class="cinema-intel__text">Complete 5 in a row to trigger mission success.</span>
+                    </li>
+                </ol>
             </section>
 
-            <button hx-post="/start" hx-target="#game-container" hx-swap="outerHTML"
-                class="command-btn command-btn-primary">
-                Start Game
-            </button>
+            <!-- CTA -->
+            <div class="cinema-cta" style="animation-delay: 0.45s">
+                <button hx-post="/start" hx-target="#game-container" hx-swap="outerHTML"
+                    class="deploy-btn">
+                    Start Game
+                </button>
+                <p class="cinema-footnote">Mission initiates immediately upon deployment</p>
+            </div>
+
         </div>
     </div>
 </div>
